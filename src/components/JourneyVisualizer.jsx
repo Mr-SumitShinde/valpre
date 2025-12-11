@@ -61,7 +61,7 @@ const JourneyVisualizer = () => {
                         </JourneyTile>
 
                         <div className="p-8 md:p-10 flex-1 flex flex-col justify-center">
-                            <h3 className="text-2xl font-bold text-gray-900 mb-2">Entry Point</h3>
+                            <h3 className="text-2xl font-bold text-gray-900 mb-2">Start Your Journey</h3>
                             <p className="text-gray-500 mb-8">How does the user want to navigate to their application?</p>
 
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
