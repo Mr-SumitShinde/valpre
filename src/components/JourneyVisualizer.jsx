@@ -121,6 +121,12 @@ const JourneyVisualizer = () => {
                         <div className="p-8 md:p-12 flex-1 flex flex-col justify-center">
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
+                                <div className="col-span-1 md:col-span-2 flex items-center gap-3 mb-3">
+                                    <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+                                        <MousePointerClick size={16} />
+                                    </div>
+                                    <span className="font-semibold text-gray-900">Start by choosing a user path:</span>
+                                </div>
                                 {/* Option 1: Direct Access */}
                                 <button
                                     onClick={() => handleNavigate(2, 'direct')}
@@ -215,7 +221,7 @@ const JourneyVisualizer = () => {
                         Experience Valpré Journey
                     </h2>
                     <p className="text-lg text-gray-600">
-                        Explore the different ways users can land on their specific application within the Valpré Framework.
+                        Discover how users seamlessly transition from the Valpré ecosystem directly into your application.
                     </p>
                 </div>
 
