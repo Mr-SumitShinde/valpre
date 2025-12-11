@@ -173,10 +173,10 @@ const JourneyVisualizer = () => {
                             <JourneyImage
                                 src={path === 'contextual' ? toolkitContextualImg : toolkitNonContextualImg}
                                 alt={path === 'contextual' ? "Contextual Data View" : "Task List View"}
-                                placeholderTitle={path === 'contextual' ? "Client Context View" : "Task Dashboard"}
+                                placeholderTitle={path === 'contextual' ? "Client Context View" : "Non-Contextual View"}
                                 placeholderDesc={path === 'contextual'
                                     ? "Details about the specific client (e.g., John Smith), including recent interactions and available actions."
-                                    : "A list of pending tasks and workflows requiring user attention."}
+                                    : "General application interface where the user enters without specific pre-loaded context, requiring manual search or navigation."}
                             />
                         </JourneyTile>
 
