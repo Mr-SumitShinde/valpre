@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { cn } from '../lib/utils';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
@@ -26,11 +27,11 @@ const Navbar = () => {
             )}
         >
             <div className="container mx-auto px-6 flex items-center justify-between">
-                <div className="flex items-center gap-2 cursor-pointer">
+                <Link to="/" className="flex items-center gap-2 cursor-pointer">
                     <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-teal-500">
                         Valpré
                     </span>
-                </div>
+                </Link>
 
                 {/* Desktop Nav */}
                 <div className="hidden md:flex items-center gap-8">
@@ -62,12 +63,12 @@ const Navbar = () => {
                                     className="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-64"
                                 >
                                     <div className="bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden p-2 flex flex-col">
-                                        <a href="#" className="block px-4 py-3 rounded-lg hover:bg-gray-50 transition-colors text-sm text-gray-700 font-medium">
+                                        <Link to="/framework-adoption" className="block px-4 py-3 rounded-lg hover:bg-gray-50 transition-colors text-sm text-gray-700 font-medium">
                                             Valpre Framework adoption
-                                        </a>
-                                        <a href="#" className="block px-4 py-3 rounded-lg hover:bg-gray-50 transition-colors text-sm text-gray-700 font-medium">
+                                        </Link>
+                                        <Link to="/desktop-adoption" className="block px-4 py-3 rounded-lg hover:bg-gray-50 transition-colors text-sm text-gray-700 font-medium">
                                             Valpre Desktop adoption
-                                        </a>
+                                        </Link>
                                     </div>
                                 </motion.div>
                             )}
@@ -105,8 +106,8 @@ const Navbar = () => {
                         <div className="py-2">
                             <div className="font-medium text-lg text-gray-900 mb-2">Adoption</div>
                             <div className="pl-4 flex flex-col gap-3 border-l-2 border-gray-100">
-                                <a href="#" className="text-gray-600 font-medium text-base">Valpre Framework adoption</a>
-                                <a href="#" className="text-gray-600 font-medium text-base">Valpre Desktop adoption</a>
+                                <Link to="/framework-adoption" className="text-gray-600 font-medium text-base">Valpre Framework adoption</Link>
+                                <Link to="/desktop-adoption" className="text-gray-600 font-medium text-base">Valpre Desktop adoption</Link>
                             </div>
                         </div>
 
