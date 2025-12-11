@@ -9,15 +9,72 @@ import {
     ListTodo,
     LayoutGrid,
     MousePointerClick,
-    ExternalLink
+    ExternalLink,
+    Image as ImageIcon
 } from 'lucide-react';
 import JourneyTile from './JourneyTile';
 
 // Import Assets
-import homeImg from '../assets/Home.png';
-import miniappImg from '../assets/Miniapp.png';
-import toolkitContextualImg from '../assets/ToolkitContextual.png';
-import toolkitNonContextualImg from '../assets/ToolkitNonContectual.png';
+// Use glob import to handle optional/missing images without build errors
+const imageAssets = import.meta.glob('../assets/images/*.png', { eager: true });
+
+// Helper to safely get image source
+const getImageSrc = (filename) => {
+    // Try to matches relative path key in the glob object
+    const key = `../assets/images/${filename}`;
+    // Eager import returns module with default export as the image URL
+    return imageAssets[key]?.default || null;
+};
+
+const homeImg = getImageSrc('Home.png');
+const miniappImg = getImageSrc('Miniapp.png');
+const toolkitContextualImg = getImageSrc('ToolkitContextual.png');
+const toolkitNonContextualImg = getImageSrc('ToolkitNonContectual.png');
+
+const JourneyImage = ({ src, alt, placeholderTitle, placeholderDesc }) => {
+    const [hasError, setHasError] = useState(false);
+
+    if (hasError || !src) {
+        return (
+            <div className="w-full h-full p-6 md:p-8 bg-gray-50/30">
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.98 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    className="w-full h-full rounded-2xl border-2 border-dashed border-gray-300 bg-gradient-to-br from-white to-gray-50 flex flex-col items-center justify-center p-6 text-center relative overflow-hidden group shadow-sm hover:shadow-md transition-shadow"
+                >
+                    {/* Decorative Elements */}
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50/50 rounded-bl-full opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                    <div className="absolute bottom-0 left-0 w-32 h-32 bg-purple-50/50 rounded-tr-full opacity-0 group-hover:opacity-100 transition-all duration-500" />
+
+                    <div className="relative z-10 flex flex-col items-center max-w-lg mx-auto">
+                        <div className="w-16 h-16 bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] ring-1 ring-gray-100 flex items-center justify-center mb-4 transform transition-transform duration-500 group-hover:-translate-y-2">
+                            <ImageIcon className="text-gray-400 group-hover:text-blue-500 transition-colors duration-500" size={28} strokeWidth={1.5} />
+                        </div>
+
+                        <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-gray-100 rouned-full rounded-full text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-3 border border-gray-200">
+                            Concept Visualization
+                        </div>
+
+                        <h4 className="text-xl font-bold text-gray-800 mb-2 tracking-tight">{placeholderTitle}</h4>
+                        <p className="text-sm text-gray-500 leading-relaxed font-medium px-4">
+                            {placeholderDesc}
+                        </p>
+                    </div>
+                </motion.div>
+            </div>
+        );
+    }
+
+    return (
+        <img
+            src={src}
+            alt={alt}
+            className="w-full h-full object-contain"
+            onError={() => setHasError(true)}
+        />
+    );
+};
 
 const JourneyVisualizer = () => {
     const [step, setStep] = useState(1);
@@ -53,10 +110,11 @@ const JourneyVisualizer = () => {
                 return (
                     <div className="flex flex-col h-full bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
                         <JourneyTile title="Home Page" type="browser">
-                            <img
+                            <JourneyImage
                                 src={homeImg}
                                 alt="Valpre Home Page"
-                                className="w-full h-full object-contain"
+                                placeholderTitle="Home Dashboard"
+                                placeholderDesc="The main landing page where the user starts their journey. Contains navigation, widgets, and quick access points."
                             />
                         </JourneyTile>
 
@@ -112,10 +170,13 @@ const JourneyVisualizer = () => {
                             title={path === 'contextual' ? 'Contextual Search Results' : 'Task Manager Dashboard'}
                             type="browser"
                         >
-                            <img
+                            <JourneyImage
                                 src={path === 'contextual' ? toolkitContextualImg : toolkitNonContextualImg}
                                 alt={path === 'contextual' ? "Contextual Data View" : "Task List View"}
-                                className="w-full h-full object-contain"
+                                placeholderTitle={path === 'contextual' ? "Client Context View" : "Task Dashboard"}
+                                placeholderDesc={path === 'contextual'
+                                    ? "Details about the specific client (e.g., John Smith), including recent interactions and available actions."
+                                    : "A list of pending tasks and workflows requiring user attention."}
                             />
                         </JourneyTile>
 
@@ -143,10 +204,11 @@ const JourneyVisualizer = () => {
                 return (
                     <div className="flex flex-col h-full bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
                         <JourneyTile title="Target Application" type="app">
-                            <img
+                            <JourneyImage
                                 src={miniappImg}
                                 alt="Final Application Interface"
-                                className="w-full h-full object-contain"
+                                placeholderTitle="Application Interface"
+                                placeholderDesc="The specific mini-app or tool the user intended to reach. It is now loaded with the correct context."
                             />
                         </JourneyTile>
 

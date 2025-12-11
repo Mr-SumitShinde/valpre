@@ -21,11 +21,11 @@ const journeys = [
     },
     {
         id: 'performance-tuning',
-        title: 'Performance Tuning',
+        title: 'Role Entitlements',
         description: 'Best practices for optimizing your application performance using Valpré tools.',
         icon: <Zap className="w-6 h-6" />,
         color: 'bg-amber-500',
-        placeholderText: 'Performance Metrics Screenshot Placement'
+        placeholderText: 'Role Entitlements Metrics Screenshot Placement'
     }
 ];
 
