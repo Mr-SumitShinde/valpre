@@ -108,7 +108,7 @@ const JourneyVisualizer = () => {
         switch (step) {
             case 1:
                 return (
-                    <div className="flex flex-col h-full bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
+                    <div className="flex flex-col bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
                         <JourneyTile title="Home Page" type="browser">
                             <JourneyImage
                                 src={homeImg}
@@ -118,7 +118,7 @@ const JourneyVisualizer = () => {
                             />
                         </JourneyTile>
 
-                        <div className="p-8 md:p-12 flex-1 flex flex-col justify-center">
+                        <div className="p-8 md:p-12 flex flex-col justify-center">
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
                                 <div className="col-span-1 md:col-span-2 flex items-center gap-3 mb-3">
@@ -177,7 +177,7 @@ const JourneyVisualizer = () => {
 
             case 2:
                 return (
-                    <div className="flex flex-col h-full bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
+                    <div className="flex flex-col bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
                         <JourneyTile title="Target Application" type="app">
                             <JourneyImage
                                 src={miniappImg}
@@ -187,7 +187,7 @@ const JourneyVisualizer = () => {
                             />
                         </JourneyTile>
 
-                        <div className="p-8 md:p-10 flex-1 flex flex-row items-center justify-between">
+                        <div className="p-8 md:p-10 md:pb-16 flex flex-row items-center justify-between">
                             <div className="max-w-xl">
                                 <div className="inline-flex items-center gap-2 px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold uppercase tracking-wide mb-3">
                                     <MousePointerClick size={12} /> Launch Complete
