@@ -81,7 +81,10 @@ const Navbar = () => {
                 </div>
 
                 <div className="hidden md:flex items-center gap-4">
-                    <button className="bg-blue-600 text-white px-5 py-2.5 rounded-xl font-medium text-sm hover:bg-blue-700 transition-all hover:shadow-lg hover:-translate-y-0.5">
+                    <button
+                        onClick={() => document.getElementById('adoption-gateway')?.scrollIntoView({ behavior: 'smooth' })}
+                        className="bg-blue-600 text-white px-5 py-2.5 rounded-xl font-medium text-sm hover:bg-blue-700 transition-all hover:shadow-lg hover:-translate-y-0.5"
+                    >
                         Get Started
                     </button>
                 </div>
@@ -114,7 +117,15 @@ const Navbar = () => {
                         <a href="#" className="text-gray-600 font-medium text-lg py-2">Documentation</a>
 
                         <div className="flex flex-col gap-3 mt-4">
-                            <button className="w-full py-3 bg-blue-600 text-white font-medium rounded-xl">Get Started</button>
+                            <button
+                                onClick={() => {
+                                    setIsOpen(false);
+                                    document.getElementById('adoption-gateway')?.scrollIntoView({ behavior: 'smooth' });
+                                }}
+                                className="w-full py-3 bg-blue-600 text-white font-medium rounded-xl"
+                            >
+                                Get Started
+                            </button>
                         </div>
                     </div>
                 </motion.div>

@@ -5,7 +5,7 @@ import { Layout, Code2, ArrowRight, Monitor, Layers } from 'lucide-react';
 
 const AdoptionGateway = () => {
     return (
-        <section className="py-24 bg-white relative overflow-hidden">
+        <section id="adoption-gateway" className="min-h-screen flex items-center justify-center py-20 bg-white relative overflow-hidden">
             {/* Background Decor */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
                 <div className="absolute top-20 left-10 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
