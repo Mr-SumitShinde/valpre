@@ -13,6 +13,12 @@ import {
 } from 'lucide-react';
 import JourneyTile from './JourneyTile';
 
+// Import Assets
+import homeImg from '../assets/Home.png';
+import miniappImg from '../assets/Miniapp.png';
+import toolkitContextualImg from '../assets/ToolkitContextual.png';
+import toolkitNonContextualImg from '../assets/ToolkitNonContectual.png';
+
 const JourneyVisualizer = () => {
     const [step, setStep] = useState(1);
     const [direction, setDirection] = useState(0);
@@ -47,13 +53,11 @@ const JourneyVisualizer = () => {
                 return (
                     <div className="flex flex-col h-full bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
                         <JourneyTile title="Home Page" type="browser">
-                            <div className="text-center border-2 border-dashed border-blue-200 bg-blue-50/50 rounded-2xl p-8 max-w-md w-full">
-                                <span className="block text-lg font-semibold text-blue-900 mb-2">Home Page Screenshot</span>
-                                <span className="text-sm text-blue-600/70">
-                                    Display the main Valpré Landing Dashboard here.
-                                    <br />(Must show Search Bar & Left Sidebar)
-                                </span>
-                            </div>
+                            <img
+                                src={homeImg}
+                                alt="Valpre Home Page"
+                                className="w-full h-full object-contain"
+                            />
                         </JourneyTile>
 
                         <div className="p-8 md:p-10 flex-1 flex flex-col justify-center">
@@ -108,16 +112,11 @@ const JourneyVisualizer = () => {
                             title={path === 'contextual' ? 'Contextual Search Results' : 'Task Manager Dashboard'}
                             type="browser"
                         >
-                            <div className={`text-center border-2 border-dashed rounded-2xl p-8 max-w-md w-full ${path === 'contextual' ? 'border-purple-200 bg-purple-50/50' : 'border-teal-200 bg-teal-50/50'}`}>
-                                <span className={`block text-lg font-semibold mb-2 ${path === 'contextual' ? 'text-purple-900' : 'text-teal-900'}`}>
-                                    {path === 'contextual' ? 'Contextual Journey Screenshot' : 'Task List Screenshot'}
-                                </span>
-                                <span className={`text-sm ${path === 'contextual' ? 'text-purple-600/70' : 'text-teal-600/70'}`}>
-                                    {path === 'contextual'
-                                        ? 'Display search results for "John Smith" with contextual data.'
-                                        : 'Display the global task list or manual entry form.'}
-                                </span>
-                            </div>
+                            <img
+                                src={path === 'contextual' ? toolkitContextualImg : toolkitNonContextualImg}
+                                alt={path === 'contextual' ? "Contextual Data View" : "Task List View"}
+                                className="w-full h-full object-contain"
+                            />
                         </JourneyTile>
 
                         <div className="p-8 md:p-10 flex-1 flex flex-col justify-center items-center text-center">
@@ -144,13 +143,11 @@ const JourneyVisualizer = () => {
                 return (
                     <div className="flex flex-col h-full bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
                         <JourneyTile title="Target Application" type="app">
-                            <div className="text-center border-2 border-dashed border-green-200 bg-green-50/50 rounded-2xl p-8 max-w-md w-full">
-                                <span className="block text-lg font-semibold text-green-900 mb-2">Final App Screenshot</span>
-                                <span className="text-sm text-green-600/70">
-                                    Display the final loaded application interface here.
-                                    <br />(User is now inside their specific tool)
-                                </span>
-                            </div>
+                            <img
+                                src={miniappImg}
+                                alt="Final Application Interface"
+                                className="w-full h-full object-contain"
+                            />
                         </JourneyTile>
 
                         <div className="p-8 md:p-10 flex-1 flex flex-row items-center justify-between">
