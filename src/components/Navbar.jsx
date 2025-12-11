@@ -35,9 +35,9 @@ const Navbar = () => {
 
                 {/* Desktop Nav */}
                 <div className="hidden md:flex items-center gap-8">
-                    <a href="#" className="text-gray-600 hover:text-gray-900 font-medium transition-colors text-sm">
-                        Features
-                    </a>
+                    <Link to="/" className="text-gray-600 hover:text-gray-900 font-medium transition-colors text-sm">
+                        Home
+                    </Link>
                     <a href="#" className="text-gray-600 hover:text-gray-900 font-medium transition-colors text-sm">
                         Showcase
                     </a>
@@ -100,7 +100,7 @@ const Navbar = () => {
                     className="md:hidden bg-white border-b border-gray-100"
                 >
                     <div className="px-6 py-4 flex flex-col gap-4">
-                        <a href="#" className="text-gray-600 font-medium text-lg py-2">Features</a>
+                        <Link to="/" className="text-gray-600 font-medium text-lg py-2">Home</Link>
                         <a href="#" className="text-gray-600 font-medium text-lg py-2">Showcase</a>
 
                         <div className="py-2">
